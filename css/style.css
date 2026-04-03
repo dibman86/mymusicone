@@ -290,10 +290,11 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	font-family: Roboto, Arial, sans-serif;
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
 	font-size:16px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	text-wrap: balance;
 	cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj4NCiAgPGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMTEiIGZpbGw9IiMwMDAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiAvPg0KPC9zdmc+DQoNCg0K"), auto;
 }
 
