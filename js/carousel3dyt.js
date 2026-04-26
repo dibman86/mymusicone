@@ -203,7 +203,13 @@ function Carousel3Dspirale() {
 		var newcellindex;
 		var html = '';
 		for (var i = 0; i < data.length; i++) {
-			var title = data[i].snippet.title.replace(/\([^)]*\)|\[[^\]]*\]/g, '').trim();
+			var title = data[i].snippet.title.replace(/\s*[\(\[][^()\[\]]*[\)\]]/gi,function(match) {
+				if (/feat|ft/i.test(match)) {
+					return match; // On ne touche à rien, on garde le texte
+				}
+				return "";
+			});
+			title = title.replace(/\s\s+/g, ' ').trim();
 			var vid = data[i].snippet.resourceId.videoId;
 			if (videoid !== '') {
 				if (videoid === vid) {
