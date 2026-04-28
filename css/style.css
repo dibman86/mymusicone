@@ -2877,7 +2877,7 @@ footer {
 	margin: auto;
 	width: 240px;
 	height: 14px;
-	padding: 2px 10px;
+	padding: 2px;
 	background: #000;
 	border: 2px solid #fff;
 	-webkit-border-radius: 7px;
@@ -2888,15 +2888,14 @@ footer {
 	font-weight: bold;
 	text-align: center;
 	letter-spacing: 1px;
-	line-height: 6px;
+	line-height: 7px;
 	z-index: 1100;
 }
 
 footer a {
 	padding: 1px;
 	color:#55acee;
-	text-decoration: none;
-	border-bottom: 1px solid #01b96b;
+	text-decoration: underline;
 }
 
 footer a:hover,
