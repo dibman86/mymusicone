@@ -216,21 +216,17 @@ function Carousel3Dspirale() {
 					newcellindex = i;
 				}
 			}
-			if (!isEmpty(data[i].snippet.thumbnails)) {
-				if (data[i].snippet.thumbnails.hasOwnProperty('standard')) {
-					var thumb = data[i].snippet.thumbnails.standard.url;
-				} else if (data[i].snippet.thumbnails.hasOwnProperty('medium')) {
-					var thumb = data[i].snippet.thumbnails.medium.url;
-				} else {
-					var thumb = data[i].snippet.thumbnails.default.url;
-				}
+			var thumbnails = data[i].snippet.thumbnails;
+			if (!isEmpty(thumbnails)) {
+				var thumb = (thumbnails.medium && thumbnails.medium.url) || (thumbnails.high && thumbnails.high.url) || (thumbnails.default && thumbnails.default.url);
 			} else {
 				data.splice(i, 1);
 				i--;
 				continue;
 			}
+			var defaultThumb = thumbnails.default ? thumbnails.default.url : '';
 			var div =
-				'<div class="carousel__cell" style="border-width:' + border + 'px;" data-style="false"><div class="carousel-overlay"></div><a class="ytlink mediabox" data-click="false" data-img="' + thumb + '" data-globalid="' + (playlistId + ',' + vid) + '"  href="https://www.youtube-nocookie.com/embed/' + vid + '" rel="noopener noreferrer nofollow" target="_blank" ondragstart="return false;" title="' + title + '"><div class="cell loading_img"><img src="' + thumb + '" alt=""><div class="cachecolor"><div class="imgcolor" style="background-image:url(' + thumb + ');"></div></div></div><div class="yttitle" translate="no"><span>' + title + '</span></div></a><div class="blockqr"><button type="button" class="btn btn_qr fa fa-times default-click"  title="Afficher QR Code">QR</button><div class="container_qr default-click"><div class="container_imgqr loading_img"><img class="video_qr" src="https://quickchart.io/qr?text=https%3A%2F%2Fyoutu.be%2F' + vid + 'DPxL7dO5XPc&light=ff0000&dark=ffffff&margin=6&size=140&format=svg" alt="QR CODE"></div><div class="text_qr">SCANNE MOI</div></div></div></div>';
+				'<div class="carousel__cell" style="border-width:' + border + 'px;" data-style="false"><div class="carousel-overlay"></div><a class="ytlink mediabox" data-click="false" data-img="' + thumb + '" data-globalid="' + (playlistId + ',' + vid) + '"  href="https://www.youtube-nocookie.com/embed/' + vid + '" rel="noopener noreferrer nofollow" target="_blank" ondragstart="return false;" title="' + title + '"><div class="cell loading_img"><img src="' + thumb + '" alt="" loading="lazy"><div class="cachecolor"><div class="imgcolor" style="background-image:url(' + thumb + ');"></div></div></div><div class="yttitle" translate="no"><span>' + title + '</span></div></a><div class="blockqr"><button type="button" class="btn btn_qr fa fa-times default-click"  title="Afficher QR Code">QR</button><div class="container_qr default-click"><div class="container_imgqr loading_img"><img class="video_qr" src="https://quickchart.io/qr?text=https%3A%2F%2Fyoutu.be%2F' + vid + 'DPxL7dO5XPc&light=ff0000&dark=ffffff&margin=6&size=140&format=svg" alt="QR CODE"></div><div class="text_qr">SCANNE MOI</div></div></div></div>';
 			html = html + div;
 		}
 		
